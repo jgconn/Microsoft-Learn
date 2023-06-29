@@ -2,6 +2,7 @@
 from fastapi import FastAPI
 import requests
 import os
+from cryptography.fernet import Fernet
 
 app = FastAPI(docs_url="/")
 
@@ -29,3 +30,9 @@ except:
     print("Valid URL")
 else:
     print("Invalid URL: " + errorChk)
+
+key = Fernet.generate_key()
+
+f = Fernet(key)
+token = f.encrypt(b"A really secret message")
+print(token)
