@@ -111,3 +111,12 @@ print(f"On the Moon, you would weigh about {round(100/6, 1)}% of your weight on 
 subject = "interesting facts about the moon"
 heading = f"{subject.title()}"
 print(heading)
+
+# math lib
+from math import ceil, floor
+
+round_up = ceil(12.5)
+print(round_up)
+
+round_down = floor(12.5)
+print(round_down)
