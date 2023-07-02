@@ -1,4 +1,5 @@
 from datetime import date;
+from datetime import timedelta, datetime;
 
 #sums
 sum = 1 + 2;
@@ -221,3 +222,66 @@ rainfall = {
 
 for key in rainfall.keys():
     print(f'{key}: {rainfall[key]}cm')
+
+# check if key exists
+if 'december' in rainfall:
+    rainfall['december'] = rainfall['december'] + 1 #december is in rainfall 2.1 + 1 = 3.1
+else:
+    rainfall['december'] = 1
+
+# get all values
+total_rainfall = 0
+for value in rainfall.values():
+    total_rainfall = total_rainfall + value
+
+print(f'There was {total_rainfall}cm in the last quarter.')
+
+# functions
+def rocket_parts():
+    print("payload, propellant, structure")
+
+rocket_parts()
+
+output = rocket_parts()
+output
+
+# any () takes an iterable and returns True if any item in iterable is True, otherwise False
+any([True, False, False]) # true
+any([False, False, False]) # false
+
+def distance_from_earth(destination):
+    if destination == "Moon":
+        return "238,855"
+    else:
+        return "Unable to compute to that destination"
+    
+distance_from_earth("Moon")
+distance_from_earth("Poon")
+
+def days_to_complete(distance, speed):
+    hours = distance/speed
+    return hours/24
+
+print(days_to_complete(238855, 75))
+
+def arrival_time(destination, hours=51):
+    now = datetime.now()
+    arrival = now + timedelta(hours=hours)
+    return arrival.strftime(f"{destination} Arrival: %A %H:%M")
+
+check1 = arrival_time("Orbit", hours=0.13)
+print(check1)
+
+# single asterick for variable arguments
+# double asterick allows function to accept any number of keyword arguemnts
+def variable_length(**kwargs):
+    print(kwargs)
+
+variable_length(tanks=1, day="Wednesday", pilots=3)
+
+def crew_members(**kwargs):
+    print(f"{len(kwargs)} astronauts assigned for this mission:")
+    for title, name in kwargs.items():
+        print(f"{title}: {name}")
+
+crew_members(captain="Neil Armstrong", pilot="Buzz Aldrin", command_pilot="Michael Collins")
