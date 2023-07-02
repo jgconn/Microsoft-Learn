@@ -164,3 +164,16 @@ print("The regular satellite moons of Jupiter are", regular_satellite_moons)
 regular_satellite_moons.sort()
 print("The regular satellite moons of Jupiter are", regular_satellite_moons)
 
+# loops
+new_planets = ""
+planets = []
+
+while new_planets.lower() != "done":
+    if new_planets:
+        planets.append(new_planets)
+    new_planets = input("Enter a planet or type 'done': ")
+
+countdown = [4, 3, 2, 1, 0]
+for number in countdown:
+    print(number)
+print("Blast off!! 🚀")
