@@ -167,13 +167,57 @@ print("The regular satellite moons of Jupiter are", regular_satellite_moons)
 # loops
 new_planets = ""
 planets = []
-
+'''
 while new_planets.lower() != "done":
     if new_planets:
         planets.append(new_planets)
     new_planets = input("Enter a planet or type 'done': ")
 
+'''
+
 countdown = [4, 3, 2, 1, 0]
 for number in countdown:
     print(number)
 print("Blast off!! 🚀")
+
+# dictionary
+planet = {
+    'name': 'Earth',
+    'moons': 1
+}
+
+print(planet.get('name'))
+
+planet.update({'name': 'Makemake'})
+
+print(planet.get('name'))
+
+# shorter verison of update()
+planet['name'] = 'Earth'
+
+planet['name'] = 'Jupiter'
+planet['moons'] = 79
+
+# adds orbitial period into dict
+planet['orbital period'] = 4333
+
+# remove value from dict
+planet.pop('orbital period')
+
+# add complex data types
+planet['diameter (km)'] = {
+    'polar': 133709,
+    'equatorial': 142984
+}
+
+print(planet)
+print(f'{planet["name"]} polar diameter: {planet["diameter (km)"]["polar"]}')
+
+rainfall = {
+    'october': 3.5,
+    'november': 4.2,
+    'december': 2.1
+}
+
+for key in rainfall.keys():
+    print(f'{key}: {rainfall[key]}cm')
